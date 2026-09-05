@@ -1,0 +1,23 @@
+# AERIS
+
+> Autonomous Emergency Response & Green Corridor System (SIH-26205)
+> Team Port2Code
+
+AERIS dispatches ambulances through preempted green corridors, reroutes them around live traffic, and warns only the drivers ahead of the ambulance in its specific lane.
+
+## Module summaries
+
+- Home: live backend health, navigation to each module.
+- Emergency Vehicle HUD: live ambulance telemetry, route, and signal preemption sequence.
+- Traffic Control Dashboard: active green corridors, live preemptions, watchdog overrides.
+- Citizen Reporting: file hazard reports, upload photos, corroborate reports.
+
+## Tech stack
+
+- Frontend: React 18, TypeScript, React Router, TanStack Query, Tailwind CSS, Vite.
+- Backend: FastAPI, Motor (async MongoDB), Pydantic v2, SlowAPI rate limiting, passlib JWT auth, scikit-learn road risk model.
+- External APIs: Mappls (routing/traffic/geocoding), Firebase Cloud Messaging (push alerts).
+
+## Setup
+
+See the README at the repository root for backend, frontend, MongoDB, and Redis prerequisites and run instructions.

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="robots" content="index, follow" />
+    <!--
+      AERIS - Emergency Response System
+      Autonomous Emergency Response & Green Corridor System (SIH-26205)
+      Team Port2Code
+    -->
+    <title>AERIS - Emergency Response System</title>
+    <meta
+      name="description"
+      content="AERIS dispatches ambulances through preempted green corridors, reroutes around live traffic, and warns only the drivers ahead. Built for emergency response operators and traffic controllers."
+    />
+    <link rel="canonical" href="https://aeris.example.com/" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "EmergencyService",
+        "name": "AERIS",
+        "description": "Autonomous Emergency Response & Green Corridor System",
+        "areaServed": "IN",
+        "serviceType": "Emergency vehicle dispatch and signal preemption",
+        "provider": {
+          "@type": "Organization",
+          "name": "Port2Code",
+          "url": "https://aeris.example.com"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

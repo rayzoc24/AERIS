@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /login
+Disallow: /register
+Disallow: /404
+
+Sitemap: https://aeris.example.com/sitemap.xml

@@ -1,0 +1,31 @@
+# AERIS
+
+> Autonomous Emergency Response & Green Corridor System (SIH-26205)
+> Team Port2Code
+
+AERIS dispatches ambulances through preempted green corridors, reroutes them around live traffic using Mappls, and warns only the drivers ahead of the ambulance in its specific lane. A fail-safe watchdog reverts signals to normal operation if GPS is lost. Citizens can report accidents and hazards through the citizen reporting interface, with a corroboration score computed from subsequent confirmations.
+
+## Modules
+
+- Home / Dashboard: live backend health, route to each module.
+- Emergency Vehicle HUD: live ambulance telemetry, route, and signal preemption sequence. (Admin, Driver)
+- Traffic Control Dashboard: active green corridors, live preemptions, watchdog overrides. (Admin only)
+- Citizen Reporting: file hazard reports, upload photos, corroborate existing reports. (Citizen, Driver, Admin)
+
+## Tech stack
+
+- Frontend: React 18, TypeScript, React Router, TanStack Query, Tailwind CSS, Vite.
+- Backend: FastAPI, Motor (async MongoDB), Pydantic v2, SlowAPI rate limiting, passlib JWT auth, scikit-learn for road risk.
+- External APIs: Mappls (routing/traffic/geocoding), Firebase Cloud Messaging (push alerts).
+
+## Pages and SEO
+
+Each page declares a unique title, meta description, canonical link, exactly one H1, breadcrumbs with JSON-LD BreadcrumbList, and an EmergencyService structured data block where relevant. robots.txt, sitemap.xml, and llms.txt live in /public.
+
+## Security
+
+19 checks enforced end to end, including JWT auth, RBAC for admin/driver/citizen, Content-Security-Policy with nonces, strict CORS allowlist, HTTPS redirect in production, HSTS, X-Frame-Options, X-Content-Type-Options, secure cookies, Pydantic input validation, Motor parameterised queries, MongoDB JSON schema validators, SlowAPI rate limits, CSRF tokens on state-changing requests, secure file upload validation, disabled Swagger docs in production, and source maps disabled in the production build.
+
+## Contact
+
+Project issues are tracked in the SIH team repository.

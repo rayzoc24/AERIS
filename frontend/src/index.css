@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-aeris-bg text-aeris-textPrimary font-sans antialiased;
+  margin: 0;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Sharp focus rings only. No glows, no transitions on data refresh. */
+:focus-visible {
+  outline: 2px solid theme("colors.aeris.textSecondary");
+  outline-offset: 1px;
+}
+
+button,
+a {
+  @apply transition-colors duration-100;
+}
+
+/*
+ * Page headings. Tailwind's preflight resets h1-h6 to font-size/weight:
+ * inherit, so bare <h1> tags (used at the top of every page) would
+ * otherwise render identically to body text. This restores a clear,
+ * utilitarian hierarchy without touching any page component.
+ */
+h1 {
+  @apply text-2xl md:text-3xl font-semibold tracking-tight text-aeris-textPrimary;
+  margin: 0;
+}
+h1 + p {
+  margin-top: 0.5rem;
+}
+
+/* Default link styling for links inside body copy (not nav/button/badge
+   links, which set their own color via aeris-* classes). */
+main a:not([class]) {
+  @apply text-aeris-info underline underline-offset-2;
+}
+main a:not([class]):hover {
+  @apply text-aeris-textPrimary;
+}
+
+/* Skip-to-content link for accessibility. */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  @apply bg-aeris-accent text-white px-4 py-2 z-50;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Header bar */
+.aeris-header {
+  @apply border-b border-aeris-border bg-aeris-surface;
+}
+
+.aeris-nav-link {
+  @apply text-aeris-textSecondary text-sm px-3 py-2 border border-transparent;
+}
+.aeris-nav-link:hover,
+.aeris-nav-link[aria-current="page"] {
+  @apply text-aeris-textPrimary border-aeris-border bg-aeris-surfaceAlt;
+}
+
+/* Panels and cards. Sharp borders, subtle shadow. */
+.aeris-panel {
+  @apply border border-aeris-border bg-aeris-surface shadow-sm;
+}
+
+.aeris-stat {
+  @apply border border-aeris-border bg-aeris-surfaceAlt px-4 py-3 flex flex-col gap-1;
+}
+
+/* Buttons: square corners, solid borders, no pills. */
+.aeris-btn {
+  @apply inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium border border-aeris-border bg-aeris-surfaceAlt text-aeris-textPrimary;
+}
+.aeris-btn:hover {
+  @apply border-aeris-textSecondary;
+}
+.aeris-btn:disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+.aeris-btn-primary {
+  @apply bg-aeris-accent border-aeris-accent text-white;
+}
+.aeris-btn-primary:hover {
+  @apply border-aeris-accent;
+  filter: brightness(1.05);
+}
+.aeris-btn-danger {
+  @apply bg-aeris-danger border-aeris-danger text-white;
+}
+
+/* Form inputs */
+.aeris-input,
+.aeris-select,
+.aeris-textarea {
+  @apply w-full px-3 py-2 text-sm bg-aeris-surfaceAlt border border-aeris-border text-aeris-textPrimary;
+}
+.aeris-input:focus,
+.aeris-select:focus,
+.aeris-textarea:focus {
+  @apply border-aeris-textSecondary outline-none;
+}
+
+/* Status badges - flat rectangles, no pills. */
+.aeris-badge {
+  @apply inline-flex items-center px-2 py-0.5 text-xs font-medium uppercase tracking-wide border;
+}
+.aeris-badge-active { @apply border-aeris-info text-aeris-info; }
+.aeris-badge-resolved { @apply border-aeris-success text-aeris-success; }
+.aeris-badge-critical { @apply border-aeris-danger text-aeris-danger; }
+.aeris-badge-warning { @apply border-aeris-warning text-aeris-warning; }
+.aeris-badge-muted { @apply border-aeris-border text-aeris-textMuted; }
+
+/* Breadcrumbs */
+.aeris-breadcrumbs {
+  @apply flex items-center gap-2 text-xs text-aeris-textMuted;
+}
+.aeris-breadcrumbs a:hover {
+  @apply text-aeris-textPrimary;
+}
+
+/* Tables */
+.aeris-table {
+  @apply w-full text-sm border-collapse;
+}
+.aeris-table th {
+  @apply text-left text-aeris-textMuted font-medium uppercase tracking-wide text-xs border-b border-aeris-border px-3 py-2;
+}
+.aeris-table td {
+  @apply border-b border-aeris-border px-3 py-2 align-top;
+}
+.aeris-table tbody tr:hover {
+  @apply bg-aeris-surfaceAlt;
+}
+
+/* Loading skeleton. No spinners - just gray placeholders. */
+.aeris-skeleton {
+  @apply bg-aeris-surfaceAlt animate-pulse h-4 w-full;
+}
